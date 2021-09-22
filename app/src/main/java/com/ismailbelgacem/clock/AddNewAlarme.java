@@ -25,13 +25,12 @@ import java.util.Random;
 
 public class AddNewAlarme extends AppCompatActivity implements View.OnClickListener {
 
-    TimePicker timePicker;
+    private TimePicker timePicker;
     private CardView ringOff,ringMath;
-    TextInputLayout title;
-    Button scheduleAlarm,btnMon,btnTue,btnWed,btnThu,btnFri,btnSat,btnSun;
-   private boolean bmon=false,btue=false,bwed=false,bthu=false,bfri=false,bsat=false,bsun=false,brecurring=true;
+    private TextInputLayout title;
+    private Button scheduleAlarm,btnMon,btnTue,btnWed,btnThu,btnFri,btnSat,btnSun;
+    private boolean bmon=false,btue=false,bwed=false,bthu=false,bfri=false,bsat=false,bsun=false,brecurring=true;
    boolean ringM= false,ringoff=false;
-    LinearLayout recurringOptions;
     private CreateAlarmViewModel createAlarmViewModel;
 
     @Override
