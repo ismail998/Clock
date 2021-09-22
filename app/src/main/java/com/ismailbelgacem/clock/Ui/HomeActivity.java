@@ -1,4 +1,4 @@
-package com.ismailbelgacem.clock;
+package com.ismailbelgacem.clock.Ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -9,17 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ismailbelgacem.clock.Adapter.AdapterRecyclerView;
 import com.ismailbelgacem.clock.Adapter.OnToggleAlarmListener;
 import com.ismailbelgacem.clock.Adapter.ViewModelRecyclerView;
 import com.ismailbelgacem.clock.Model.Alarme;
+import com.ismailbelgacem.clock.R;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements OnToggleAlarmListener {
+public class HomeActivity extends AppCompatActivity implements OnToggleAlarmListener {
     private AdapterRecyclerView alarmRecyclerViewAdapter;
     private ViewModelRecyclerView alarmsListViewModel;
     private RecyclerView alarmsRecyclerView;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements OnToggleAlarmList
        addAlarm.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent i = new Intent(MainActivity.this,AddNewAlarme.class);
+               Intent i = new Intent(HomeActivity.this, AddNewAlarme.class);
                startActivity(i);
            }
        });

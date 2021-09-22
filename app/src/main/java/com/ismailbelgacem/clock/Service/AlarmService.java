@@ -1,11 +1,10 @@
-package com.ismailbelgacem.clock;
+package com.ismailbelgacem.clock.Service;
 
 import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.RINGMATH;
 import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.RINGOFF;
 import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.TITLE;
 import static com.ismailbelgacem.clock.Application.app.CHANNEL_ID;
 
-import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -23,7 +22,8 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import com.ismailbelgacem.clock.Application.app;
+import com.ismailbelgacem.clock.R;
+import com.ismailbelgacem.clock.Ui.RaingActivity;
 
 public class AlarmService extends Service {
     private MediaPlayer mediaPlayer;

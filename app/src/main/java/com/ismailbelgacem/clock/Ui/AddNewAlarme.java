@@ -1,24 +1,20 @@
-package com.ismailbelgacem.clock;
+package com.ismailbelgacem.clock.Ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.Navigation;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TimePicker;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.ismailbelgacem.clock.Model.Alarme;
+import com.ismailbelgacem.clock.R;
+import com.ismailbelgacem.clock.Data.TimePickerUtil;
 import com.ismailbelgacem.clock.ViewModel.CreateAlarmViewModel;
 
 import java.util.Random;

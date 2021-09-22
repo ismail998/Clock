@@ -1,4 +1,4 @@
-package com.ismailbelgacem.clock;
+package com.ismailbelgacem.clock.Service;
 
 import android.content.Intent;
 

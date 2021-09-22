@@ -1,4 +1,4 @@
-package com.ismailbelgacem.clock;
+package com.ismailbelgacem.clock.Data;
 
 import android.os.Build;
 import android.widget.TimePicker;

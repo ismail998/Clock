@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Clock">
         <activity
-            android:name=".RaingActivity"
+            android:name=".Ui.RaingActivity"
             android:exported="true" />
         <activity
-            android:name=".AddNewAlarme"
+            android:name=".Ui.AddNewAlarme"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Ui.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,8 +36,8 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".AlarmService" />
-        <service android:name=".RescheduleAlarmsService" />
+        <service android:name=".Service.AlarmService" />
+        <service android:name=".Service.RescheduleAlarmsService" />
 
         <meta-data
             android:name="preloaded_fonts"

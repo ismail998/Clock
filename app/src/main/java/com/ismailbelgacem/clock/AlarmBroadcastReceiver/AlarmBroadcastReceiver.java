@@ -4,13 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.os.ParcelUuid;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.ismailbelgacem.clock.AlarmService;
-import com.ismailbelgacem.clock.RaingActivity;
-import com.ismailbelgacem.clock.RescheduleAlarmsService;
+import com.ismailbelgacem.clock.Service.AlarmService;
+import com.ismailbelgacem.clock.Service.RescheduleAlarmsService;
 
 import java.util.Calendar;
 

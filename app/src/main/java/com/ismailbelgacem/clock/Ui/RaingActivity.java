@@ -1,8 +1,7 @@
-package com.ismailbelgacem.clock;
+package com.ismailbelgacem.clock.Ui;
 
 import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.RINGMATH;
 import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.RINGOFF;
-import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.TITLE;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,9 +16,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.ismailbelgacem.clock.Service.AlarmService;
 import com.ismailbelgacem.clock.Model.Alarme;
+import com.ismailbelgacem.clock.R;
 
 import java.util.Calendar;
 import java.util.Random;

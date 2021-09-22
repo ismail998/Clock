@@ -23,7 +23,6 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver;
-import com.ismailbelgacem.clock.RaingActivity;
 import com.ismailbelgacem.clock.Utils.DayUtil;
 
 import java.util.Calendar;
