@@ -97,7 +97,7 @@ public class AddNewAlarme extends AppCompatActivity implements View.OnClickListe
         createAlarmViewModel.insert(alarm);
         alarm.schedule(this);
         finish();
-        Log.d("TAG", "scheduleAlarm: "+brecurring);
+        Log.d("TAG", "scheduleAlarm: "+ringM);
     }
 
     public boolean selectDay(Button btn , boolean select){

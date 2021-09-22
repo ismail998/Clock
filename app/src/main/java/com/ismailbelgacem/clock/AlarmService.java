@@ -1,8 +1,11 @@
 package com.ismailbelgacem.clock;
 
+import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.RINGMATH;
+import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.RINGOFF;
 import static com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver.TITLE;
 import static com.ismailbelgacem.clock.Application.app.CHANNEL_ID;
 
+import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -15,9 +18,12 @@ import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.Vibrator;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+
+import com.ismailbelgacem.clock.Application.app;
 
 public class AlarmService extends Service {
     private MediaPlayer mediaPlayer;
@@ -29,23 +35,22 @@ public class AlarmService extends Service {
         mediaPlayer.setLooping(true);
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
     }
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Intent notificationIntent = new Intent(this, RaingActivity.class);
+        notificationIntent.putExtra(RINGMATH,intent.getBooleanExtra(RINGMATH,false));
+        notificationIntent.putExtra(RINGOFF,intent.getBooleanExtra(RINGOFF,false));
+        Log.d("TAG", "onStartCommand: "+intent.getBooleanExtra(RINGOFF,false) );
+        notificationIntent.setAction(String.valueOf(intent.getBooleanExtra(RINGOFF,false)));
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
-
         String alarmTitle = String.format("%s Alarm", intent.getStringExtra(TITLE));
-
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(alarmTitle)
                 .setContentText("Ring Ring .. Ring Ring")
                 .setSmallIcon(R.drawable.ic_baseline_access_alarms_24)
                 .setContentIntent(pendingIntent)
                 .build();
-
         mediaPlayer.start();
-
         long[] pattern = { 0, 100, 1000 };
         vibrator.vibrate(pattern, 0);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)

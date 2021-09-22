@@ -23,6 +23,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import com.ismailbelgacem.clock.AlarmBroadcastReceiver.AlarmBroadcastReceiver;
+import com.ismailbelgacem.clock.RaingActivity;
 import com.ismailbelgacem.clock.Utils.DayUtil;
 
 import java.util.Calendar;
@@ -227,7 +228,6 @@ public class Alarme {
     }
     public void schedule(Context context) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
         Intent intent = new Intent(context, AlarmBroadcastReceiver.class);
         intent.putExtra(RECURRING, recurring);
         intent.putExtra(MONDAY, monday);
@@ -239,6 +239,7 @@ public class Alarme {
         intent.putExtra(SUNDAY, sunday);
         intent.putExtra(TITLE, title);
         intent.putExtra(RINGMATH,ringMath);
+        Log.d("TAG", "schedule: "+ ringMath);
         intent.putExtra(RINGOFF,ringOff);
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(context, alarmId, intent, 0);
         Calendar calendar = Calendar.getInstance();

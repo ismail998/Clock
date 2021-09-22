@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.ParcelUuid;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.ismailbelgacem.clock.AlarmService;
@@ -23,8 +24,8 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     public static final String SUNDAY = "SUNDAY";
     public static final String RECURRING = "RECURRING";
     public static final String TITLE = "TITLE";
-    public static final String RINGOFF="false";
-    public static final String RINGMATH="false";
+    public static final String RINGOFF="RINGOFF";
+    public static final String RINGMATH="RINGMATH";
     @Override
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
@@ -40,6 +41,7 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
             } {
                 if (alarmIsToday(intent)) {
                     startAlarmService(context, intent);
+                    Log.d("TAG", "onReceive: "+intent.getBooleanExtra(RINGMATH,false));
                 }
             }
         }
@@ -85,7 +87,9 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     private void startAlarmService(Context context, Intent intent) {
         Intent intentService = new Intent(context, AlarmService.class);
         intentService.putExtra(TITLE, intent.getStringExtra(TITLE));
-        intent.putExtra(RINGMATH,intent.getStringExtra(RINGMATH));
+        intentService.putExtra(RINGMATH,intent.getBooleanExtra(RINGMATH,false));
+        intentService.putExtra(RINGOFF,intent.getBooleanExtra(RINGOFF,false));
+        Log.d("TAG", "startAlarmService: " +intent.getBooleanExtra(RINGMATH,false));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intentService);
         } else {
@@ -94,14 +98,10 @@ public class AlarmBroadcastReceiver extends BroadcastReceiver {
     }
     private void startRescheduleAlarmsService(Context context) {
         Intent intentService = new Intent(context, RescheduleAlarmsService.class);
-        Intent intent1 = new Intent(context, RaingActivity.class);
-        intent1.putExtra(RINGMATH,intent1.getStringExtra(RINGMATH));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             context.startForegroundService(intentService);
-            context.startActivity(intent1);
         } else {
             context.startService(intentService);
-            context.startActivity(intent1);
         }
     }
 }
