@@ -43,9 +43,6 @@ public class RaingActivity extends AppCompatActivity {
         editRusalt = findViewById(R.id.number);
         LinearLayout line1 = findViewById(R.id.line1);
         boolean test =getIntent().getBooleanExtra(RINGMATH,false);
-        boolean test1 =getIntent().getBooleanExtra(RINGOFF,false);
-
-        Log.d("TAG", "onCreate: " +test1);
         if (test){
             dismiss.setVisibility(View.GONE);
             snooze.setVisibility(View.GONE);

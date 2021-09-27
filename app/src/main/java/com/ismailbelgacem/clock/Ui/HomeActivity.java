@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
+import com.airbnb.lottie.L;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ismailbelgacem.clock.Adapter.AdapterRecyclerView;
 import com.ismailbelgacem.clock.Adapter.OnToggleAlarmListener;
@@ -30,6 +32,10 @@ public class HomeActivity extends AppCompatActivity implements OnToggleAlarmList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        //developer is ismail belgacem
+        // my instagram : https://www.instagram.com/adev_ismail/
+        //my git hub : https://github.com/ismail998
+        Toast.makeText(HomeActivity.this,"by ismail belgacem", Toast.LENGTH_LONG);
         alarmsRecyclerView = findViewById(R.id.recycler_alarm);
         addAlarm = findViewById(R.id.floatingActionButton2);
        alarmRecyclerViewAdapter = new AdapterRecyclerView(this,getApplicationContext());
