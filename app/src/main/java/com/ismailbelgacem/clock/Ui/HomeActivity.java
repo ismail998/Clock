@@ -29,6 +29,7 @@ public class HomeActivity extends AppCompatActivity implements OnToggleAlarmList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         alarmsRecyclerView = findViewById(R.id.recycler_alarm);
         addAlarm = findViewById(R.id.floatingActionButton2);
        alarmRecyclerViewAdapter = new AdapterRecyclerView(this,getApplicationContext());
